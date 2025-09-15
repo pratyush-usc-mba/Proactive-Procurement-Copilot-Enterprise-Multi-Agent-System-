@@ -1,28 +1,90 @@
-PRD: Proactive Procurement Copilot V1
+# Product Requirements Document: Proactive Procurement Copilot (V1)
 
-User Personas:
+**Author:** Pratyush Singh  
+**Status:** In Development  
+**Target Release:** Q4 2025 (MVP)  
 
-Patricia, the Procurement Officer: Overwhelmed with manual research tasks. Needs to find and vet vendors quickly to meet business deadlines. Values speed, accuracy, and compliance.
+---
 
-Leo, the Legal Counsel: Responsible for mitigating risk. Needs to ensure all new vendors meet strict compliance standards. Values thoroughness and auditability.
+## Metadata
 
-User Stories & Functional Requirements (MVP):
+| Item              | Detail                  |
+|-------------------|-------------------------|
+| **Epic**          | Autonomous Vendor Sourcing |
+| **Document Status** | Draft                 |
+| **Document Owner** | Pratyush Singh         |
+| **Designer**      | TBD                     |
+| **Tech Lead**     | TBD                     |
 
-Epic: Autonomous Vendor Sourcing
+---
 
-PP-01 (Patricia): As Patricia, I want to submit a natural language request for a new product or service so that I can initiate the sourcing process without filling out complex forms.
+## 1. Overview & Strategic Fit
 
-PP-02 (System): As the Researcher Agent, upon receiving a sourcing request, I need to execute searches against our internal vendor database (Google Sheet) and a public web search API to identify potential suppliers.
+This document outlines the product requirements for the Minimum Viable Product (MVP) of the **Proactive Procurement Copilot**.  
 
-PP-03 (System): As the Compliance Agent, given a list of potential suppliers, I need to use an LLM to analyze their descriptions and determine if they meet a specified compliance rule (e.g., "SOC 2 compliant").
+The product is an intelligent, multi-agent system designed to automate the initial, most time-consuming stages of the enterprise procurement lifecycle: vendor discovery, research, and initial compliance vetting.  
 
-PP-04 (System): As the Summarizer Agent, given the outputs from the previous agents, I need to generate a single-page summary document that lists the vendors, their key offerings, and their compliance status.
+This initiative directly supports the strategic business goal of leveraging agentic AI to drive significant operational efficiency, reduce costs, and improve compliance in core business functions. It serves as a single source of truth for all teams involved in its development.  
 
-PP-05 (Patricia): As Patricia, I want to receive the summary document in my email within minutes of my initial request, so I can review the AI-generated findings.
+---
 
-Success Metrics:
+## 2. Problem Statement
 
-Primary: Time-to-Source (Time from request to delivery of summary document). Target: < 5 minutes.
+Enterprise procurement is a critical business function that is frequently hampered by **slow, manual, and opaque processes**. Procurement officers spend an estimated **70% of their time on low-value, repetitive tasks** such as manually searching for potential vendors, cross-referencing internal databases, and performing initial compliance checks.  
 
-Secondary: Human Effort Reduction (Projected percentage of manual research time saved). Target: 70%.
+This manual workflow leads to:
 
+- **Extended Sourcing Cycles**: The time from identifying a need to having a vetted list of vendors can take days or weeks, creating significant bottlenecks for the business.  
+- **High Operational Costs**: The manual effort required represents a substantial and unnecessary operational cost.  
+- **Increased Risk of Non-Compliance**: Manual vetting is prone to human error, increasing the risk that a non-compliant or high-risk vendor enters the supply chain.  
+
+> Current solutions are often rigid, rules-based systems that are ill-equipped to handle the dynamic and unstructured nature of strategic sourcing.  
+
+---
+
+## 3. User Personas
+
+### Primary Persona: **Patricia, the Procurement Officer**
+
+- **Bio:**  
+  A mid-level procurement manager at a large tech company, responsible for sourcing new vendors for various internal departments. She is detail-oriented and constantly under pressure to meet deadlines.  
+
+- **Goals:**  
+  - Reduce the time it takes to find and qualify new vendors.  
+  - Ensure all vendor recommendations are compliant with company policy from the outset.  
+  - Focus more of her time on strategic activities like negotiation and relationship management.  
+
+- **Pain Points:**  
+  - "I'm overwhelmed by the amount of manual web searching and data entry required for every new sourcing request."  
+  - "The back-and-forth with the legal team to get initial compliance checks done is a major bottleneck."  
+  - "I worry about missing a critical detail in a vendor's security policy, which could have serious consequences."  
+
+---
+
+### Secondary Persona: **Leo, the Legal Counsel**
+
+- **Bio:**  
+  In-house counsel specializing in vendor contracts and compliance. He is risk-averse and values thoroughness and auditability above all else.  
+
+- **Goals:**  
+  - Mitigate risk for the company by ensuring every new vendor meets strict security and compliance standards (e.g., SOC 2, ISO 27001).  
+  - Standardize the initial vetting process to ensure consistency.  
+
+- **Pain Points:**  
+  - "I often receive incomplete or inaccurate information from the procurement team, which forces me to redo their work."  
+  - "I spend too much time on repetitive, low-risk compliance reviews instead of focusing on complex contract negotiations."  
+
+---
+
+## 4. Goals & Success Metrics
+
+The success of the Proactive Procurement Copilot will be measured by its ability to improve efficiency and reduce manual effort.
+
+| **Goal**                | **Metric (KPI)**                                                                 | **Target (MVP)** |
+|--------------------------|----------------------------------------------------------------------------------|------------------|
+| **Reduce Sourcing Time** | Time-to-Source: Time from a user submitting a request to receiving the final summary report. | < 5 minutes      |
+| **Increase Operational Efficiency** | Human Effort Reduction: Percentage of manual research and vetting time saved per sourcing request. | 70%              |
+| **Improve User Adoption** | Weekly Active Users (WAU): Number of procurement officers using the tool at least once a week. | 10+ users        |
+| **Ensure High-Quality Output** | Report Acceptance Rate: Percentage of AI-generated reports that are accepted by Patricia without needing significant manual rework. | > 90%            |
+
+---
