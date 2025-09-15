@@ -1,0 +1,183 @@
+{
+  "name": "Proactive Procurement Copilot",
+  "nodes": [
+    {
+      "parameters": {
+        "operation": "getRows",
+        "documentId": "",
+        "sheetName": ""
+      },
+      "id": "a1b2c3d4-e5f6-7890-1234-567890abcdef",
+      "name": "Researcher Agent: Internal DB",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4,
+      "position": [
+        220,
+        140
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "",
+          "name": ""
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://google.serper.dev/search",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": []
+        },
+        "options": {}
+      },
+      "id": "b2c3d4e5-f6a7-8901-2345-678901bcdefa",
+      "name": "Researcher Agent: Web Search",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        220,
+        380
+      ],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "",
+          "name": ""
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o",
+        "jsonMode": true,
+        "prompt": "=Act as a meticulous procurement compliance agent. Your task is to review two lists of potential vendors and determine their compliance status based on a single rule: the vendor is considered \"Compliant\" if their description mentions \"SOC 2\".\n\nHere is the data from our internal database:\n{{ JSON.stringify($('Researcher Agent: Internal DB').all().map(item => item.json)) }}\n\nHere is the data from a web search:\n{{ JSON.stringify($('Researcher Agent: Web Search').last().json.organic.map(item => ({ title: item.title, snippet: item.snippet }))) }}\n\nPlease review all vendors from both lists. For each vendor, determine if they are compliant. Then, return a clean JSON object containing a single key \"vendors\", which is an array of objects. Each object in the array should have three keys: \"vendorName\", \"description\", and \"complianceStatus\" (either \"Compliant\" or \"Review Needed\")."
+      },
+      "id": "c3d4e5f6-a7b8-9012-3456-789012cdefab",
+      "name": "Compliance Agent",
+      "type": "n8n-nodes-base.openAiChat",
+      "typeVersion": 2,
+      "position": [
+        500,
+        260
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "",
+          "name": ""
+        }
+      }
+    },
+    {
+      "parameters": {
+        "model": "gpt-4o",
+        "prompt": "=Act as a Senior Procurement Analyst. Your job is to create a concise and clear summary brief for a busy executive.\n\nBased on the following compliance analysis data, generate a report in Markdown format. The report should have a clear title, a brief introduction, and a bulleted list of the recommended vendors. For each vendor, list their name, a short description, and their compliance status.\n\nHere is the data:\n{{ $('Compliance Agent').last().json.choices.message.content }}"
+      },
+      "id": "d4e5f6a7-b8c9-0123-4567-890123defabc",
+      "name": "Summarizer Agent",
+      "type": "n8n-nodes-base.openAiChat",
+      "typeVersion": 2,
+      "position": [
+        740,
+        260
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "",
+          "name": ""
+        }
+      }
+    },
+    {
+      "parameters": {
+        "to": "your-email@example.com",
+        "subject": "Procurement Report: {{ $('Start').item.json.procurement_request }}",
+        "html": "={{ $('Summarizer Agent').last().json.choices.message.content.replace(/\\n/g, '<br>') }}"
+      },
+      "id": "e5f6a7b8-c9d0-1234-5678-901234efabcd",
+      "name": "Send Final Report",
+      "type": "n8n-nodes-base.sendEmail",
+      "typeVersion": 3,
+      "position": [
+        980,
+        260
+      ],
+      "credentials": {
+        "smtp": {
+          "id": "",
+          "name": ""
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Start": {
+      "main": [
+        [
+          {
+            "node": "Researcher Agent: Internal DB",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Researcher Agent: Web Search",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Researcher Agent: Internal DB": {
+      "main": [
+        [
+          {
+            "node": "Compliance Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Researcher Agent: Web Search": {
+      "main": [
+        [
+          {
+            "node": "Compliance Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Compliance Agent": {
+      "main": [
+        [
+          {
+            "node": "Summarizer Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Summarizer Agent": {
+      "main": [
+        [
+          {
+            "node": "Send Final Report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "pinData": {},
+  "versionId": "1.0",
+  "triggerCount": 0,
+  "tags": []
+}
