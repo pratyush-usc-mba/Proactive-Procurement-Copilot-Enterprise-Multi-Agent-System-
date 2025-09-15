@@ -4,12 +4,12 @@ This project is a functional no-code prototype of an enterprise multi-agent AI s
 
 ## Table of Contents
 
--(#problem-statement)
--(#solution-overview)
--(#how-it-works-the-ai-agent-crew)
--(#technology-stack)
--(#setup-and-installation)
--(#how-to-run-the-workflow)
+-#problem-statement
+-#solution-overview
+-#how-it-works-the-ai-agent-crew
+-#technology-stack
+-#setup-and-installation
+-#how-to-run-the-workflow
 - [Product Management Artifacts](#product-management-artifacts)
 
 ## Problem Statement
