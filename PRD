@@ -1,0 +1,28 @@
+PRD: Proactive Procurement Copilot V1
+
+User Personas:
+
+Patricia, the Procurement Officer: Overwhelmed with manual research tasks. Needs to find and vet vendors quickly to meet business deadlines. Values speed, accuracy, and compliance.
+
+Leo, the Legal Counsel: Responsible for mitigating risk. Needs to ensure all new vendors meet strict compliance standards. Values thoroughness and auditability.
+
+User Stories & Functional Requirements (MVP):
+
+Epic: Autonomous Vendor Sourcing
+
+PP-01 (Patricia): As Patricia, I want to submit a natural language request for a new product or service so that I can initiate the sourcing process without filling out complex forms.
+
+PP-02 (System): As the Researcher Agent, upon receiving a sourcing request, I need to execute searches against our internal vendor database (Google Sheet) and a public web search API to identify potential suppliers.
+
+PP-03 (System): As the Compliance Agent, given a list of potential suppliers, I need to use an LLM to analyze their descriptions and determine if they meet a specified compliance rule (e.g., "SOC 2 compliant").
+
+PP-04 (System): As the Summarizer Agent, given the outputs from the previous agents, I need to generate a single-page summary document that lists the vendors, their key offerings, and their compliance status.
+
+PP-05 (Patricia): As Patricia, I want to receive the summary document in my email within minutes of my initial request, so I can review the AI-generated findings.
+
+Success Metrics:
+
+Primary: Time-to-Source (Time from request to delivery of summary document). Target: < 5 minutes.
+
+Secondary: Human Effort Reduction (Projected percentage of manual research time saved). Target: 70%.
+
