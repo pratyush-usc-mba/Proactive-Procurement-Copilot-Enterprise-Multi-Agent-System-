@@ -86,6 +86,71 @@ You must connect your own accounts to the workflow nodes. Click on each of the f
 5.  The workflow will now execute step-by-step. You can click on each node to see the input and output data.
 6.  Within a minute, you should receive an email with the final procurement report.
 
+
+# Product Management Artifacts for the Proactive Procurement Copilot
+
+This document contains the strategic product artifacts that guided the development of the Proactive Procurement Copilot prototype.
+
+---
+
+## 1. Product One-Pager
+
+A one-pager is a concise, executive-level summary designed to secure buy-in and align stakeholders.
+
+### Product One-Pager: Proactive Procurement Copilot
+
+**Problem:**  
+Enterprise procurement is a bottleneck. It is a slow, manual, and opaque process bogged down by repetitive research, complex compliance checks, and lengthy negotiations. This leads to extended cycle times, higher operational costs, and increased risk of non-compliance.
+
+**Solution:**  
+The Proactive Procurement Copilot is an intelligent, agentic system that transforms procurement from a reactive, manual function into a proactive, automated one. It employs a "crew" of specialized AI agents that collaborate to manage the end-to-end procurement workflow. A user simply delegates a high-level goal (e.g., *"Source a new cloud data warehouse provider"*), and the AI crew autonomously handles the research and initial vetting.
+
+**Target Audience:**  
+Procurement officers, legal and compliance teams, and finance departments in mid-to-large enterprises.
+
+**Key Features (Multi-Agent Crew):**
+- **Researcher Agent:** Scans internal databases and the public web to identify potential vendors.  
+- **Compliance Agent:** Vets vendors against internal policies via AI-driven analysis.  
+- **Summarizer Agent:** Generates concise vendor briefs and comparison matrices for human review.  
+
+**Business Impact:**
+- **Reduce Cycle Times:** Projecting a 50% reduction in the time from request to contract.  
+- **Lower Operational Costs:** Automating up to 70% of manual research and vetting tasks.  
+- **Improve Compliance:** Ensuring 100% of vendors are checked against compliance protocols automatically.  
+
+---
+
+## 2. Product Requirements Document (PRD) Snippet
+
+The PRD is the single source of truth that details the product's purpose, features, and functionality for the development team.
+
+### PRD: Proactive Procurement Copilot V1
+
+#### 1. User Personas
+
+- **Patricia, the Procurement Officer**  
+  Overwhelmed with manual research tasks. Needs to find and vet vendors quickly to meet business deadlines. Values speed, accuracy, and compliance.  
+
+- **Leo, the Legal Counsel**  
+  Responsible for mitigating risk. Needs to ensure all new vendors meet strict compliance standards. Values thoroughness and auditability.  
+
+#### 2. User Stories & Functional Requirements (MVP)
+
+**Epic: Autonomous Vendor Sourcing**
+
+- **PP-01 (Patricia):** As Patricia, I want to submit a natural language request for a new product or service so that I can initiate the sourcing process without filling out complex forms.  
+- **PP-02 (System):** As the Researcher Agent, upon receiving a sourcing request, I need to execute searches against our internal vendor database (Google Sheet) and a public web search API to identify potential suppliers.  
+- **PP-03 (System):** As the Compliance Agent, given a list of potential suppliers, I need to use an LLM to analyze their descriptions and determine if they meet a specified compliance rule (e.g., *"SOC 2 compliant"*).  
+- **PP-04 (System):** As the Summarizer Agent, given the outputs from the previous agents, I need to generate a single-page summary document that lists the vendors, their key offerings, and their compliance status.  
+- **PP-05 (Patricia):** As Patricia, I want to receive the summary document in my email within minutes of my initial request, so I can review the AI-generated findings.  
+
+#### 3. Success Metrics
+
+- **Primary:** *Time-to-Source* (Time from request to delivery of summary document). **Target:** < 5 minutes.  
+- **Secondary:** *Human Effort Reduction* (Projected percentage of manual research time saved). **Target:** 70%.  
+
+---
+
 ## Product Management Artifacts
 
 This project was guided by standard product management practices to ensure it solves a real-world problem effectively. The key documents, including the **Product One-Pager** and **Product Requirements Document (PRD)**, can be found in the `PRODUCT_ARTIFACTS.md` file in this repository.
