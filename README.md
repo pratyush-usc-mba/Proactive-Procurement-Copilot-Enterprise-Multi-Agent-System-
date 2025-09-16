@@ -154,3 +154,93 @@ The PRD is the single source of truth that details the product's purpose, featur
 ## Product Management Artifacts
 
 This project was guided by standard product management practices to ensure it solves a real-world problem effectively. The key documents, including the **Product One-Pager** and **Product Requirements Document (PRD)**, can be found in the `PRODUCT_ARTIFACTS.md` file in this repository.
+
+
+# Product Requirements Document: Proactive Procurement Copilot (V1)
+
+**Author:** Pratyush Singh  
+**Status:** In Development  
+**Target Release:** Q4 2025 (MVP)  
+
+---
+
+## Metadata
+
+| Item              | Detail                  |
+|-------------------|-------------------------|
+| **Epic**          | Autonomous Vendor Sourcing |
+| **Document Status** | Draft                 |
+| **Document Owner** | Pratyush Singh         |
+
+---
+
+## 1. Overview & Strategic Fit
+
+This document outlines the product requirements for the Minimum Viable Product (MVP) of the **Proactive Procurement Copilot**.  
+
+The product is an intelligent, multi-agent system designed to automate the initial, most time-consuming stages of the enterprise procurement lifecycle: vendor discovery, research, and initial compliance vetting.  
+
+This initiative directly supports the strategic business goal of leveraging agentic AI to drive significant operational efficiency, reduce costs, and improve compliance in core business functions. It serves as a single source of truth for all teams involved in its development.  
+
+---
+
+## 2. Problem Statement
+
+Enterprise procurement is a critical business function that is frequently hampered by **slow, manual, and opaque processes**. Procurement officers spend an estimated **70% of their time on low-value, repetitive tasks** such as manually searching for potential vendors, cross-referencing internal databases, and performing initial compliance checks.  
+
+This manual workflow leads to:
+
+- **Extended Sourcing Cycles**: The time from identifying a need to having a vetted list of vendors can take days or weeks, creating significant bottlenecks for the business.  
+- **High Operational Costs**: The manual effort required represents a substantial and unnecessary operational cost.  
+- **Increased Risk of Non-Compliance**: Manual vetting is prone to human error, increasing the risk that a non-compliant or high-risk vendor enters the supply chain.  
+
+> Current solutions are often rigid, rules-based systems that are ill-equipped to handle the dynamic and unstructured nature of strategic sourcing.  
+
+---
+
+## 3. User Personas
+
+### Primary Persona: **Patricia, the Procurement Officer**
+
+- **Bio:**  
+  A mid-level procurement manager at a large tech company, responsible for sourcing new vendors for various internal departments. She is detail-oriented and constantly under pressure to meet deadlines.  
+
+- **Goals:**  
+  - Reduce the time it takes to find and qualify new vendors.  
+  - Ensure all vendor recommendations are compliant with company policy from the outset.  
+  - Focus more of her time on strategic activities like negotiation and relationship management.  
+
+- **Pain Points:**  
+  - "I'm overwhelmed by the amount of manual web searching and data entry required for every new sourcing request."  
+  - "The back-and-forth with the legal team to get initial compliance checks done is a major bottleneck."  
+  - "I worry about missing a critical detail in a vendor's security policy, which could have serious consequences."  
+
+---
+
+### Secondary Persona: **Leo, the Legal Counsel**
+
+- **Bio:**  
+  In-house counsel specializing in vendor contracts and compliance. He is risk-averse and values thoroughness and auditability above all else.  
+
+- **Goals:**  
+  - Mitigate risk for the company by ensuring every new vendor meets strict security and compliance standards (e.g., SOC 2, ISO 27001).  
+  - Standardize the initial vetting process to ensure consistency.  
+
+- **Pain Points:**  
+  - "I often receive incomplete or inaccurate information from the procurement team, which forces me to redo their work."  
+  - "I spend too much time on repetitive, low-risk compliance reviews instead of focusing on complex contract negotiations."  
+
+---
+
+## 4. Goals & Success Metrics
+
+The success of the Proactive Procurement Copilot will be measured by its ability to improve efficiency and reduce manual effort.
+
+| **Goal**                | **Metric (KPI)**                                                                 | **Target (MVP)** |
+|--------------------------|----------------------------------------------------------------------------------|------------------|
+| **Reduce Sourcing Time** | Time-to-Source: Time from a user submitting a request to receiving the final summary report. | < 5 minutes      |
+| **Increase Operational Efficiency** | Human Effort Reduction: Percentage of manual research and vetting time saved per sourcing request. | 70%              |
+| **Improve User Adoption** | Weekly Active Users (WAU): Number of procurement officers using the tool at least once a week. | 10+ users        |
+| **Ensure High-Quality Output** | Report Acceptance Rate: Percentage of AI-generated reports that are accepted by Patricia without needing significant manual rework. | > 90%            |
+
+---
